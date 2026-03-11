@@ -1,43 +1,63 @@
 import streamlit as st
-import pandas as pd
 
-# إعدادات الهوية البصرية
-st.set_page_config(page_title="Strategic Marketing Automation", page_icon="📈", layout="wide")
+# إعدادات الصفحة
+st.set_page_config(page_title="Boda The Ghost | Marketing Automation", page_icon="🕵️‍♂️", layout="wide")
 
+# CSS لتحسين شكل المربعات والأزرار
 st.markdown("""
     <style>
     .main { background-color: #0e1117; }
-    .stButton>button { width: 100%; border-radius: 5px; height: 3em; background-color: #2e7d32; color: white; }
+    .stButton>button { width: 100%; border-radius: 10px; height: 3em; background-color: #007bff; color: white; font-weight: bold; }
+    .contact-button { display: inline-block; padding: 10px 20px; background-color: #25d366; color: white; border-radius: 5px; text-decoration: none; margin: 5px; }
+    .card { background-color: #1e2130; padding: 20px; border-radius: 15px; border: 1px solid #30363d; height: 100%; }
     </style>
     """, unsafe_allow_html=True)
 
-st.title("🚀 Data-Driven Marketing Automation Hub")
-st.subheader("تحويل البيانات إلى قرارات استراتيجية لرفع كفاءة الحملات الإعلانية")
-st.write("---")
+# --- القسم الأول: التعريف الشخصي (Home) ---
+st.title("🕵️‍♂️ Boda The Ghost")
+st.subheader("Marketing Automation Expert & Data Strategist")
+st.write("""
+أهلاً بك! أنا **بودا**، متخصص في ابتكار حلول الأتمتة للتسويق الرقمي. 
+هدفي هو تحويل العمليات اليدوية المرهقة إلى أنظمة ذكية توفر الوقت وتزيد من دقة النتائج.
+""")
 
-col1, col2, col3 = st.columns(3)
+# --- القسم الثاني: مربعات الأدوات ---
+st.write("---")
+st.header("🛠️ My Marketing Tools")
+
+col1, col2 = st.columns(2)
+
 with col1:
-    st.info("🎯 **Audience Intelligence**")
-    st.write("أنظمة متطورة لتحليل سلوك الجمهور المستهدف وتحديد القنوات الأكثر تفاعلاً.")
+    st.markdown("""<div class="card">
+    <h3>🎯 WhatsApp Validator</h3>
+    <p>أداة ذكية لفحص قوائم الأرقام والتأكد من وجود حسابات واتساب نشطة قبل بدء الحملات.</p>
+    </div>""", unsafe_allow_html=True)
+    if st.button("Open WhatsApp Tool"):
+        st.info("Coming Soon: جاري ربط الأداة بقواعد البيانات...")
+
 with col2:
-    st.success("📊 **Competitor Insights**")
-    st.write("مراقبة وتحليل تغيرات السوق لحظياً لفهم استراتيجيات المنافسين.")
-with col3:
-    st.warning("⚡ **Lead Validation**")
-    st.write("أدوات أتمتة لفلترة جودة البيانات (Leads) قبل بدء التواصل.")
+    st.markdown("""<div class="card">
+    <h3>📊 Competitor Monitor</h3>
+    <p>مراقبة لحظية لتغيرات السوق وتحليل استراتيجيات المنافسين بشكل تلقائي.</p>
+    </div>""", unsafe_allow_html=True)
+    if st.button("Open Monitor Tool"):
+        st.info("Coming Soon: الأداة تحت التطوير حالياً.")
 
+# --- القسم الثالث: طرق التواصل ---
 st.write("---")
-st.header("🛠️ Internal Tools Showcase (Demo)")
-tab1, tab2 = st.tabs(["Market Monitor", "Database Validator"])
+st.header("📲 Let's Connect")
 
-with tab1:
-    st.write("### 🖥️ Real-time Market Infrastructure Monitor")
-    url_input = st.text_input("Enter URL for Diagnostic Check:", "example.com")
-    if st.button("Run Diagnostic Scan"):
-        st.code(f"Scanning {url_input}...\n[+] Facebook Pixel: Detected\n[+] Google Tags: Optimized", language="bash")
+c1, c2, c3 = st.columns(3)
 
-with tab2:
-    st.write("### 📞 Intelligent Database Cleaning")
-    num_check = st.text_input("Enter Sample Range (e.g., 2010...):")
-    if st.button("Validate Quality"):
-        st.write("Result: **High Intent User Found** (Active Presence)")
+with c1:
+    st.markdown(f'<a href="https://wa.me/201118973019" class="contact-button" style="background-color: #25d366;">WhatsApp: 01118973019</a>', unsafe_allow_html=True)
+
+with c2:
+    st.markdown('<a href="https://instagram.com/l0gwy" class="contact-button" style="background-color: #E1306C;">Instagram: @l0gwy</a>', unsafe_allow_html=True)
+
+with c3:
+    st.markdown('<a href="https://facebook.com/boda151" class="contact-button" style="background-color: #1877F2;">Facebook: boda151</a>', unsafe_allow_html=True)
+
+st.sidebar.success("Select a tool above to start!")
+st.sidebar.markdown("---")
+st.sidebar.write("Developed with 💻 by Boda")
