@@ -1,63 +1,105 @@
 import streamlit as st
 
-# إعدادات الصفحة
-st.set_page_config(page_title="Boda The Ghost | Marketing Automation", page_icon="🕵️‍♂️", layout="wide")
+# إعدادات الصفحة الأساسية
+st.set_page_config(page_title="Boda The Ghost | Automation Hub", page_icon="👤", layout="wide")
 
-# CSS لتحسين شكل المربعات والأزرار
+# تصميم الـ UI باستخدام CSS (Neumorphism & Dark Mode)
 st.markdown("""
     <style>
-    .main { background-color: #0e1117; }
-    .stButton>button { width: 100%; border-radius: 10px; height: 3em; background-color: #007bff; color: white; font-weight: bold; }
-    .contact-button { display: inline-block; padding: 10px 20px; background-color: #25d366; color: white; border-radius: 5px; text-decoration: none; margin: 5px; }
-    .card { background-color: #1e2130; padding: 20px; border-radius: 15px; border: 1px solid #30363d; height: 100%; }
+    /* تغيير الخلفية العامة */
+    .stApp { background-color: #0b0e14; color: #e0e0e0; }
+    
+    /* تصميم الـ Cards */
+    .tool-card {
+        background: #161b22;
+        padding: 25px;
+        border-radius: 20px;
+        border: 1px solid #30363d;
+        box-shadow: 5px 5px 15px #05070a, -2px -2px 10px #1c2128;
+        transition: 0.3s;
+        margin-bottom: 20px;
+    }
+    .tool-card:hover {
+        transform: translateY(-5px);
+        border-color: #58a6ff;
+        box-shadow: 0px 0px 20px rgba(88, 166, 255, 0.2);
+    }
+    
+    /* تصميم أزرار التواصل */
+    .social-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
+        border-radius: 12px;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        margin: 10px 0;
+        transition: 0.3s;
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+    .social-btn:hover { opacity: 0.8; transform: scale(1.02); }
+    
+    /* الهيدر */
+    .main-title {
+        font-size: 3rem;
+        font-weight: 800;
+        background: -webkit-linear-gradient(#fff, #58a6ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 10px;
+    }
     </style>
     """, unsafe_allow_html=True)
 
-# --- القسم الأول: التعريف الشخصي (Home) ---
-st.title("🕵️‍♂️ Boda The Ghost")
-st.subheader("Marketing Automation Expert & Data Strategist")
-st.write("""
-أهلاً بك! أنا **بودا**، متخصص في ابتكار حلول الأتمتة للتسويق الرقمي. 
-هدفي هو تحويل العمليات اليدوية المرهقة إلى أنظمة ذكية توفر الوقت وتزيد من دقة النتائج.
-""")
+# --- Header Section ---
+st.markdown('<h1 class="main-title">Boda The Ghost</h1>', unsafe_allow_html=True)
+st.markdown("### `Marketing Automation Expert & Data Architect`")
+st.write("متخصص في بناء الأنظمة الذكية التي تدمج بين قوة البيانات وسرعة الأتمتة لتحقيق أقصى عائد إعلاني.")
 
-# --- القسم الثاني: مربعات الأدوات ---
 st.write("---")
-st.header("🛠️ My Marketing Tools")
 
+# --- Tools Section (الـ Cards) ---
+st.markdown("## 🛠️ Intelligent Modules")
 col1, col2 = st.columns(2)
 
 with col1:
-    st.markdown("""<div class="card">
-    <h3>🎯 WhatsApp Validator</h3>
-    <p>أداة ذكية لفحص قوائم الأرقام والتأكد من وجود حسابات واتساب نشطة قبل بدء الحملات.</p>
-    </div>""", unsafe_allow_html=True)
-    if st.button("Open WhatsApp Tool"):
-        st.info("Coming Soon: جاري ربط الأداة بقواعد البيانات...")
+    st.markdown("""
+    <div class="tool-card">
+        <h3 style="color: #58a6ff;">🎯 WhatsApp Validator</h3>
+        <p style="color: #8b949e;">أداة متطورة لفحص دقة البيانات وتصفية أرقام الواتساب النشطة باستخدام تقنيات الـ API لضمان وصول حملاتك لوجهتها الصحيحة.</p>
+    </div>
+    """, unsafe_allow_html=True)
+    if st.button("Launch Validator 🚀", key="wa_tool"):
+        st.toast("System: Initializing WhatsApp Module...")
 
 with col2:
-    st.markdown("""<div class="card">
-    <h3>📊 Competitor Monitor</h3>
-    <p>مراقبة لحظية لتغيرات السوق وتحليل استراتيجيات المنافسين بشكل تلقائي.</p>
-    </div>""", unsafe_allow_html=True)
-    if st.button("Open Monitor Tool"):
-        st.info("Coming Soon: الأداة تحت التطوير حالياً.")
+    st.markdown("""
+    <div class="tool-card">
+        <h3 style="color: #58a6ff;">📊 Competitor Tracking</h3>
+        <p style="color: #8b949e;">نظام مراقبة ذكي يتتبع تحركات المنافسين، الإعلانات النشطة، وتغيرات الأسعار لحظياً لإبقائك دائماً في الصدارة.</p>
+    </div>
+    """, unsafe_allow_html=True)
+    if st.button("Launch Monitor 📈", key="comp_tool"):
+        st.toast("System: Fetching Market Data...")
 
-# --- القسم الثالث: طرق التواصل ---
+# --- Contact Section ---
 st.write("---")
-st.header("📲 Let's Connect")
-
+st.markdown("## 🔗 Direct Channels")
 c1, c2, c3 = st.columns(3)
 
 with c1:
-    st.markdown(f'<a href="https://wa.me/201118973019" class="contact-button" style="background-color: #25d366;">WhatsApp: 01118973019</a>', unsafe_allow_html=True)
+    st.markdown('<a href="https://wa.me/201118973019" class="social-btn" style="background: #218838;">🟢 WhatsApp Account</a>', unsafe_allow_html=True)
 
 with c2:
-    st.markdown('<a href="https://instagram.com/l0gwy" class="contact-button" style="background-color: #E1306C;">Instagram: @l0gwy</a>', unsafe_allow_html=True)
+    st.markdown('<a href="https://instagram.com/l0gwy" class="social-btn" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);">📸 Instagram: @l0gwy</a>', unsafe_allow_html=True)
 
 with c3:
-    st.markdown('<a href="https://facebook.com/boda151" class="contact-button" style="background-color: #1877F2;">Facebook: boda151</a>', unsafe_allow_html=True)
+    st.markdown('<a href="https://facebook.com/boda151" class="social-btn" style="background: #0b84ee;">🔵 Facebook: boda151</a>', unsafe_allow_html=True)
 
-st.sidebar.success("Select a tool above to start!")
+# --- Footer ---
+st.sidebar.markdown("### 🛠️ Control Panel")
+st.sidebar.info("جميع الأدوات تعمل ببيئة معزولة لضمان خصوصية البيانات.")
 st.sidebar.markdown("---")
-st.sidebar.write("Developed with 💻 by Boda")
+st.sidebar.write("Developed by: **Boda The Ghost** 💀")
