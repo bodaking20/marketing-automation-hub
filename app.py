@@ -1,105 +1,139 @@
 import streamlit as st
 
-# إعدادات الصفحة الأساسية
-st.set_page_config(page_title="Boda The Ghost | Automation Hub", page_icon="👤", layout="wide")
+# إعدادات الصفحة
+st.set_page_config(page_title="Boda The Ghost | Full Ecosystem", page_icon="⚡", layout="wide")
 
-# تصميم الـ UI باستخدام CSS (Neumorphism & Dark Mode)
+# تصميم UI متطور (Glassmorphism & Cyber Glow)
 st.markdown("""
     <style>
-    /* تغيير الخلفية العامة */
-    .stApp { background-color: #0b0e14; color: #e0e0e0; }
+    /* الخلفية والتنسيق العام */
+    .stApp { background: radial-gradient(circle at top right, #1a1f2c, #0b0e14); color: #ffffff; }
     
-    /* تصميم الـ Cards */
-    .tool-card {
-        background: #161b22;
-        padding: 25px;
+    /* تصميم الكروت بنمط Neo-Glass */
+    .card-container {
+        background: rgba(255, 255, 255, 0.03);
         border-radius: 20px;
-        border: 1px solid #30363d;
-        box-shadow: 5px 5px 15px #05070a, -2px -2px 10px #1c2128;
-        transition: 0.3s;
-        margin-bottom: 20px;
-    }
-    .tool-card:hover {
-        transform: translateY(-5px);
-        border-color: #58a6ff;
-        box-shadow: 0px 0px 20px rgba(88, 166, 255, 0.2);
-    }
-    
-    /* تصميم أزرار التواصل */
-    .social-btn {
+        padding: 25px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        transition: all 0.4s ease;
+        height: 320px;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 12px;
-        border-radius: 12px;
-        text-decoration: none;
-        color: white;
-        font-weight: bold;
-        margin: 10px 0;
-        transition: 0.3s;
-        border: 1px solid rgba(255,255,255,0.1);
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 25px;
     }
-    .social-btn:hover { opacity: 0.8; transform: scale(1.02); }
+    .card-container:hover {
+        border-color: #00d4ff;
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
+    }
     
-    /* الهيدر */
-    .main-title {
-        font-size: 3rem;
-        font-weight: 800;
-        background: -webkit-linear-gradient(#fff, #58a6ff);
+    /* العناوين */
+    .main-header {
+        font-size: 4rem;
+        font-weight: 900;
+        text-align: center;
+        background: linear-gradient(90deg, #fff, #00d4ff, #fff);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
+    }
+    
+    /* أزرار الروابط */
+    .action-btn {
+        display: block;
+        text-align: center;
+        padding: 12px;
+        background: linear-gradient(90deg, #00d4ff, #004e92);
+        color: white !important;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+    .action-btn:hover { opacity: 0.9; box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4); }
+    
+    .social-bar {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 30px;
     }
     </style>
     """, unsafe_allow_html=True)
 
-# --- Header Section ---
-st.markdown('<h1 class="main-title">Boda The Ghost</h1>', unsafe_allow_html=True)
-st.markdown("### `Marketing Automation Expert & Data Architect`")
-st.write("متخصص في بناء الأنظمة الذكية التي تدمج بين قوة البيانات وسرعة الأتمتة لتحقيق أقصى عائد إعلاني.")
-
+# --- Header ---
+st.markdown('<h1 class="main-header">Boda The Ghost</h1>', unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; font-size: 1.2rem; color: #8b949e;'>Automation Architect & Software Developer</p>", unsafe_allow_html=True)
 st.write("---")
 
-# --- Tools Section (الـ Cards) ---
-st.markdown("## 🛠️ Intelligent Modules")
+# --- Grid System للأدوات ---
+st.markdown("## 🚀 My Digital Ecosystem")
+
+# الصف الأول
 col1, col2 = st.columns(2)
 
 with col1:
-    st.markdown("""
-    <div class="tool-card">
-        <h3 style="color: #58a6ff;">🎯 WhatsApp Validator</h3>
-        <p style="color: #8b949e;">أداة متطورة لفحص دقة البيانات وتصفية أرقام الواتساب النشطة باستخدام تقنيات الـ API لضمان وصول حملاتك لوجهتها الصحيحة.</p>
+    st.markdown(f"""
+    <div class="card-container">
+        <div>
+            <h2 style="color: #00d4ff;">📖 Quran-V1</h2>
+            <p style="color: #b1b1b1;">أداة القرآن الكريم المجانية - صدقة جارية، تتيح لك الوصول للمصحف الشريف برمجياً وبواجهة سهلة الاستخدام.</p>
+        </div>
+        <a href="https://github.com/bodaking20/Quran-V1" target="_blank" class="action-btn">Source Code (GitHub)</a>
     </div>
     """, unsafe_allow_html=True)
-    if st.button("Launch Validator 🚀", key="wa_tool"):
-        st.toast("System: Initializing WhatsApp Module...")
 
 with col2:
-    st.markdown("""
-    <div class="tool-card">
-        <h3 style="color: #58a6ff;">📊 Competitor Tracking</h3>
-        <p style="color: #8b949e;">نظام مراقبة ذكي يتتبع تحركات المنافسين، الإعلانات النشطة، وتغيرات الأسعار لحظياً لإبقائك دائماً في الصدارة.</p>
+    st.markdown(f"""
+    <div class="card-container">
+        <div>
+            <h2 style="color: #00d4ff;">🖥️ Side-By-Side Merger</h2>
+            <p style="color: #b1b1b1;">أداة تقسيم ودمج الشاشة الاحترافية لتسهيل العمل على أكثر من ملف أو فيديو في وقت واحد بدقة عالية.</p>
+        </div>
+        <a href="https://github.com/bodaking20/SIDE-BY-SIDE-MERGER" target="_blank" class="action-btn">View Repository</a>
     </div>
     """, unsafe_allow_html=True)
-    if st.button("Launch Monitor 📈", key="comp_tool"):
-        st.toast("System: Fetching Market Data...")
+
+# الصف الثاني (أدوات تخطي الحقوق)
+col3, col4 = st.columns(2)
+
+with col3:
+    st.markdown(f"""
+    <div class="card-container" style="border-color: #ff4b2b;">
+        <div>
+            <h2 style="color: #ff4b2b;">⚽ Football Rights Bypass</h2>
+            <p style="color: #b1b1b1;">أداة حصرية لتخطي حقوق البث لمباريات كرة القدم وإعادة رفعها بدون حظر (حقوق الطبع والنشر).</p>
+        </div>
+        <a href="https://wa.me/201118973019?text=أريد%20الاشتراك%20في%20أداة%20تخطي%20حقوق%20الكورة" class="action-btn" style="background: #ff4b2b;">إشترك الآن (WhatsApp)</a>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col4:
+    st.markdown(f"""
+    <div class="card-container" style="border-color: #ff4b2b;">
+        <div>
+            <h2 style="color: #ff4b2b;">🎬 Cinema Rights Bypass</h2>
+            <p style="color: #b1b1b1;">أداة متطورة لتخطي حقوق المسلسلات والأفلام العالمية لضمان استمرارية البث والنشر بدون قيود.</p>
+        </div>
+        <a href="https://wa.me/201118973019?text=أريد%20الاشتراك%20في%20أداة%20تخطي%20حقوق%20المسلسلات" class="action-btn" style="background: #ff4b2b;">إشترك الآن (WhatsApp)</a>
+    </div>
+    """, unsafe_allow_html=True)
 
 # --- Contact Section ---
 st.write("---")
-st.markdown("## 🔗 Direct Channels")
-c1, c2, c3 = st.columns(3)
+st.markdown("<h2 style='text-align: center;'>📲 Connect With Me</h2>", unsafe_allow_html=True)
 
-with c1:
-    st.markdown('<a href="https://wa.me/201118973019" class="social-btn" style="background: #218838;">🟢 WhatsApp Account</a>', unsafe_allow_html=True)
+st.markdown(f"""
+    <div class="social-bar">
+        <a href="https://wa.me/201118973019" style="text-decoration:none; color:#25d366; font-size: 25px;">WhatsApp</a>
+        <a href="https://instagram.com/l0gwy" style="text-decoration:none; color:#E1306C; font-size: 25px;">Instagram</a>
+        <a href="https://facebook.com/boda151" style="text-decoration:none; color:#1877F2; font-size: 25px;">Facebook</a>
+    </div>
+""", unsafe_allow_html=True)
 
-with c2:
-    st.markdown('<a href="https://instagram.com/l0gwy" class="social-btn" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);">📸 Instagram: @l0gwy</a>', unsafe_allow_html=True)
-
-with c3:
-    st.markdown('<a href="https://facebook.com/boda151" class="social-btn" style="background: #0b84ee;">🔵 Facebook: boda151</a>', unsafe_allow_html=True)
-
-# --- Footer ---
-st.sidebar.markdown("### 🛠️ Control Panel")
-st.sidebar.info("جميع الأدوات تعمل ببيئة معزولة لضمان خصوصية البيانات.")
+st.sidebar.markdown("### 💀 The Ghost System")
+st.sidebar.write("جميع الأدوات مشفرة ومحمية.")
 st.sidebar.markdown("---")
-st.sidebar.write("Developed by: **Boda The Ghost** 💀")
+st.sidebar.info("Status: Fully Operational")
